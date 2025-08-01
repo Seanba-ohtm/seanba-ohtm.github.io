@@ -7,7 +7,7 @@ calendar = Calendar.from_ical(ics.text)
 
 def replace_next_meeting_line(month, day, year, url):
     print(f"Next meeting: {month} {day}, {year} ({url})")
-    file_path = "..\index.html"
+    file_path = "index.html"
     with fileinput.input(file_path, inplace=True) as file:
         for line in file:
             if "next-meeting-ref" in line:

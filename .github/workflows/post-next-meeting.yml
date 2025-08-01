@@ -2,8 +2,8 @@ name: Post Next Meeting
 run-name: ${{ github.actor }} is setting the link to the next meeting
 on:
   schedule:
-    # Run at 8:05 PM CST every Thursday
-    - cron: "5 20 * * 4"
+    # Run at 8:05 PM CST every Thursday. Corrected for stupid UTC.
+    - cron: "5 2 * * 5"
   workflow_dispatch:
 
 permissions:
@@ -32,9 +32,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          date > generated.txt
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "generated"
+          git commit -m "Update next meeting link"
           git push      

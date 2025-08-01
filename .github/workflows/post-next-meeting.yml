@@ -28,7 +28,10 @@ jobs:
           python -m pip install requests
 
       - name: Run Python script
-        run: python scripts/post-next-meeting.py
+        run: |
+          python scripts/post-next-meeting.py
+          git add .
+          git commit -m "Update link to next meeting"
 
       - name: Push changes
         uses: ad-m/github-push-action@master

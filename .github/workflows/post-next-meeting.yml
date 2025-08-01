@@ -28,8 +28,12 @@ jobs:
           python -m pip install requests
 
       - name: Run Python script
-        run: |
-          python scripts/post-next-meeting.py
+        run: python scripts/post-next-meeting.py
+
+      - name: Add and commit
+        run:
+          git config user.name github-actions
+          git config user.email github-actions@github.com        
           git add .
           git commit -m "Update link to next meeting"
 

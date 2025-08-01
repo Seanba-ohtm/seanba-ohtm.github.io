@@ -4,6 +4,8 @@ on:
   schedule:
     # Run at 8:05 PM CST every Thursday
     - cron: "5 20 * * 4"
+  workflow_dispatch:
+
 jobs:
   post-next-meeting:
     runs-on: ubuntu-latest
